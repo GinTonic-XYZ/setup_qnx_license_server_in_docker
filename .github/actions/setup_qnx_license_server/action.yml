@@ -1,0 +1,14 @@
+name: 'Setup QNX License'
+description: 'Setup the QNX license server'
+inputs:
+  license_server:
+    description: 'License server address'
+    required: true
+    default: '*****@**.**.*.**'
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        /var/lib/neo/qnxinstall/lmutil lmpath -override qnxlm ${{ inputs.license_server }}
+        /var/lib/neo/qnxinstall/lmutil lmpath -status
+      shell: bash
