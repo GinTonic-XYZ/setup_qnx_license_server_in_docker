@@ -1,10 +1,19 @@
+# ワークフローの命名
 name: 'Setup QNX License'
+# ワークフローの説明
 description: 'Setup the QNX license server'
+# inputsで変数を定義する
 inputs:
+  # 変数の定義
   license_server:
+    # 変数の説明
     description: 'License server address'
+    # この変数が必須の値かどうかの設定
     required: true
+    # 変数のデフォルト値の設定
     default: '*****@**.**.*.**'
+
+# 処理
 runs:
   using: 'composite'
   steps:
